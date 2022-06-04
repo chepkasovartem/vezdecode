@@ -1,0 +1,20 @@
+version: "3.7"
+
+networks:
+  app:
+    driver: bridge
+
+services:
+
+  node:
+    build:
+      context: ${SERVICE_PATH:-../service}
+      args:
+        uid: ${UID:-1000}
+    volumes:
+      - ${SERVICE_PATH:-../service}:/app
+    ports:
+      - target: 80
+        published: ${SERVICE_PORT:-8080}
+    networks:
+      app: { }

@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+
+  node:
+    ports:
+      - target: 80
+        published: ${SERVICE_PORT:-8080}

@@ -18,11 +18,11 @@ export class EntrypointController {
         let response = new Response();
 
         let name = process.env.APP_TEAM_NAME;
-        let regex = new RegExp(`${name} Вездекод`);
+        let regex = new RegExp(`${name} Везде код`);
 
         response.text = regex.test(request.request.original_utterance)
             ? 'Привет вездекодерам!'
-            : 'Ошибка ввода';
+            : `Вы ввели "${request.request.original_utterance}" Ошибка ввода`;
 
         return responseFormatter(response, request.session, request.version);
     }

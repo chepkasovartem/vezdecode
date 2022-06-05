@@ -1,29 +1,34 @@
 import 'reflect-metadata';
-import { Body, Get, JsonController, Post } from "routing-controllers";
-import { RequestModel } from "../models/RequestModel";
-import { ResponseModel } from "../models/ResponseModel";
+import { Body, Get, JsonController, Post } from "routing-controllers";;
 import { Response } from "../services/Response";
-import { responseFormatter } from "../decorators/response";
+import {Request} from "../services/Request";
+import {AbstractCommand} from "../services/AbstractCommand";
+import {HelloCommand} from "../commands/HelloCommand";
+import {BadRequestCommand} from "../commands/BadRequestCommand";
+import {QuizCommand} from "../commands/QuizCommand";
+import {QuestionCommand} from "../commands/QuestionCommand";
 
 @JsonController()
 export class EntrypointController {
+
+    private commands: AbstractCommand[] = [
+        new HelloCommand(),
+        new QuizCommand(),
+        new QuestionCommand()
+    ]
 
     @Get()
     public app(): string {
         return 'Hello world'
     }
 
-    @Post('/sayHello')
-    public sayHello(@Body() request: RequestModel): ResponseModel {
-        let response = new Response();
+    @Post('/entrypoint')
+    public entrypoint(@Body() request: Request): Response {
+        let callback: (command: AbstractCommand) => boolean = (command: AbstractCommand) => command.match(request)
+        let commands: AbstractCommand[] = this.commands.filter(callback)
 
-        let name = process.env.APP_TEAM_NAME;
-        let regex = new RegExp(`${name} Везде код`);
+        commands.push(new BadRequestCommand)
 
-        response.text = regex.test(request.request.original_utterance)
-            ? 'Привет вездекодерам!'
-            : `Вы ввели "${request.request.original_utterance}" Ошибка ввода`;
-
-        return responseFormatter(response, request.session, request.version);
+        return commands[0].handle(request);
     }
 }

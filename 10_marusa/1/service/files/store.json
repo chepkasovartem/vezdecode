@@ -1,0 +1,22 @@
+{
+  "d7caace3-61e4-4891-b326-5c7e1b61b990": {
+    "js": "yes",
+    "marusa": "yes",
+    "bots": "yes",
+    "design": "no",
+    "vk": "no",
+    "mobile": "yes",
+    "sp": "no",
+    "backend": "yes"
+  },
+  "fec871a6-6239-4cc4-8729-e06d31bc5866": {
+    "js": "no",
+    "marusa": "yes",
+    "bots": "yes",
+    "design": "yes",
+    "vk": "no",
+    "mobile": "yes",
+    "sp": "no",
+    "backend": "no"
+  }
+}

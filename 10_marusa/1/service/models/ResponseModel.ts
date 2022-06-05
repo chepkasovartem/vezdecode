@@ -1,15 +1,23 @@
-import {AnyT, jsonMember, jsonObject} from "typedjson";
+import {AnyT, jsonArrayMember, jsonMember, jsonObject} from "typedjson";
 import {Response} from "../services/Response";
+import {CommandModel} from "./CommandModel";
+import {ButtonModel} from "./ButtonModel";
 
 @jsonObject
 export class ResponseModel {
 
-    @jsonMember(Response)
-    public response: Response;
-
     @jsonMember(AnyT)
-    public session: object;
+    public text: string|string[]
 
-    @jsonMember(AnyT)
-    public version: object;
+    @jsonMember(String)
+    public tts: string
+
+    @jsonArrayMember(AnyT)
+    public commands: CommandModel[]
+
+    @jsonArrayMember(AnyT)
+    public buttons: ButtonModel[]
+
+    @jsonMember(Boolean)
+    public end_session: boolean = true
 }

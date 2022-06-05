@@ -1,8 +1,8 @@
 import {Response} from "../services/Response";
 import {ResponseModel} from "../models/ResponseModel";
 
-export function responseFormatter(response: Response, session, version): ResponseModel {
-    let model = new ResponseModel();
+export function responseFormatter(response: ResponseModel, session, version): Response {
+    let model = new Response();
     model.session = session;
     model.version = version;
 

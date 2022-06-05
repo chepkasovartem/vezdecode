@@ -1,14 +1,15 @@
-import {jsonMember, jsonObject} from "typedjson";
+import {AnyT, jsonMember, jsonObject} from "typedjson";
+import {ResponseModel} from "../models/ResponseModel";
 
 @jsonObject
 export class Response {
 
-    @jsonMember(String)
-    public text: string
+    @jsonMember(ResponseModel)
+    public response: ResponseModel;
 
-    @jsonMember(String)
-    public tts: string
+    @jsonMember(AnyT)
+    public session: object;
 
-    @jsonMember(Boolean)
-    public end_session: boolean = true
+    @jsonMember(AnyT)
+    public version: object;
 }

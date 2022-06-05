@@ -1,18 +1,18 @@
 import {AnyT, jsonMember, jsonObject} from "typedjson";
-import {Request} from "../services/Request";
+import {PayloadModel} from "./PayloadModel";
 
 @jsonObject
 export class RequestModel {
 
-    @jsonMember(AnyT)
-    public meta: object;
+    @jsonMember(String)
+    public command: string;
 
-    @jsonMember(Request)
-    public request: Request;
+    @jsonMember(String)
+    public original_utterance: string;
+
+    @jsonMember(String)
+    public type: "SimpleUtterance"|"ButtonPressed";
 
     @jsonMember(AnyT)
-    public session: object;
-
-    @jsonMember(AnyT)
-    public version: object;
+    public payload: PayloadModel;
 }

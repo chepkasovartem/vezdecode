@@ -32,11 +32,28 @@ def setmax(first, second):
 # 3 # ответ
 
 
+# расписание
+tables = []
+
 (n, x) = (map(int, input().split()))
-watch = []
-prev_right = -1
 for i in range(n):
     (left, right) = (map(int, input().split()))
+    tables.append([left, right])
+
+# print('tables before sorting')
+# print(tables)
+
+tables = sorted(tables, key=lambda x: x[0], reverse=False)
+
+# print('tables after sorting')
+# print(tables)
+
+watch = []
+prev_right = -1
+for table in tables:
+
+    left = table[0]
+    right = table[1]
 
     hours_to_watch = right - left
 
@@ -67,6 +84,7 @@ max_watched_episodes = 0
 # x = 6
 # watch = [3, 3, 0, 0, 0, 2, 1, 1]
 # watch = [1, 0, 1, 0, 0, 2, 1, 1, 1, 1]
+# print('watch')
 # print(watch)
 
 m = len(watch)

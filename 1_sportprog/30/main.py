@@ -19,11 +19,12 @@ for i in range(n):
 for handle in handles:
     try:
         submissions = anonim_cf_api.user_status(handle)
-        ok_submissions = 0
+        unique_problems = []
         for submission in submissions:
-            if submission.verdict == 'OK':
-                ok_submissions += 1
-        print(handle, ok_submissions)
+            uuid = str(submission.problem.contest_id) + str(submission.problem.index)
+            if uuid not in unique_problems:
+                unique_problems.append(uuid)
+        print(handle, len(unique_problems))
     except Exception as exception:
         print("Oops! Error occurred:", exception)
 

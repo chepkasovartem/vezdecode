@@ -1,6 +1,3 @@
-
-
-
 Если при запуске встречается ошибка SSL дискорда, решение описано в https://github.com/Rapptz/discord.py/issues/423
 
 Установка библиотек
@@ -8,36 +5,16 @@
 pip3 install -r requirements.txt
 ```
 
-Запуск программы
+Копируем .env-example в .env, заполняем его [токеном Дискорд бота](https://www.writebots.com/discord-bot-token/)
+
+Запуск процесс менеджера Дискорд бота
 ```
-python3 main.py
+python3 discord.py
 ```
 
-На вход подается количество логинов и сами логины (handles) по одному на строку
+Запуск процесса менеджера окончания уроков
 ```
-10
-DmitriyH
-Fefer_Ivan
-mrokiriko
-chepkasovartem
-joparino
-J8Q
-GlebBondarchuk42
-Roman11
-FishKOH
-Crazy4Frog
+python3 lesson.py
 ```
-
-На выход возвращаются логин и количество решенных задач
-```
-DmitriyH 1457
-Fefer_Ivan 761
-mrokiriko 41
-chepkasovartem 0
-joparino 0
-J8Q 0
-GlebBondarchuk42 0
-Roman11 5
-FishKOH 285
-Crazy4Frog 0
-```
+Дискорд бот кладет в файл урока никнеймы учеников кто был на занятии.
+По окончанию уроков, имена записываются в logs.txt.

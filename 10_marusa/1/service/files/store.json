@@ -18,5 +18,45 @@
     "mobile": "yes",
     "sp": "no",
     "backend": "no"
+  },
+  "a444c5f6-bf2d-4ec5-b084-e7da32be6917": {
+    "js": "yes",
+    "marusa": "yes"
+  },
+  "903938e3-155f-4e53-ac8a-d4d4730534d7": {
+    "js": "yes"
+  },
+  "99700a81-9d6b-49f9-991c-bb2428e1d0ff": {
+    "js": "yes"
+  },
+  "f9bf7a22-4abf-4f04-9572-c1365c6177ad": {
+    "js": "yes",
+    "marusa": "yes"
+  },
+  "7f40585f-f8c6-4860-af3c-552066635f04": {
+    "js": "yes"
+  },
+  "73ca6b46-6f61-4185-9064-32d69f29d358": {
+    "js": "yes"
+  },
+  "66a5a623-e51a-4dea-b7d3-20855594636f": {
+    "js": "yes",
+    "marusa": "yes",
+    "bots": "no",
+    "design": "yes",
+    "vk": "yes",
+    "mobile": "yes",
+    "sp": "yes",
+    "backend": "yes"
+  },
+  "69e680eb-66b3-4c6b-a0a8-4badb7e9ee7a": {
+    "js": "yes",
+    "marusa": "yes",
+    "bots": "yes",
+    "design": "no",
+    "vk": "yes",
+    "mobile": "yes",
+    "sp": "yes",
+    "backend": "yes"
   }
 }

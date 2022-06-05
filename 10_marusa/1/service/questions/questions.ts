@@ -2,6 +2,7 @@ import {QuestionModel} from "../models/QuestionModel";
 import {ButtonModel} from "../models/ButtonModel";
 import {PayloadModel} from "../models/PayloadModel";
 import {AnswerModel} from "../models/AnswerModel";
+import {CardModel} from "../models/CardModel";
 
 export enum answer {
     YES = "yes",
@@ -14,7 +15,8 @@ export const questions: { [key: string]: QuestionModel } = {
         [
             new ButtonModel(AnswerModel.answer('2'), new PayloadModel(answer.NO, 'js')),
             new ButtonModel(AnswerModel.answer('11'), new PayloadModel(answer.YES, 'js')),
-        ]
+        ],
+        new CardModel(457239020)
     ),
     'marusa': new QuestionModel(
         'Вы меня любите?',
@@ -42,14 +44,16 @@ export const questions: { [key: string]: QuestionModel } = {
         [
             new ButtonModel(AnswerModel.answer('Посмотрим...'), new PayloadModel(answer.YES, 'design')),
             new ButtonModel(AnswerModel.answer('По факту'), new PayloadModel(answer.NO, 'design')),
-        ]
+        ],
+        new CardModel(457239017)
     ),
     'mobile': new QuestionModel(
         'Ты не программист, ты лишь раскрашиваешь кнопочки и в случайном порядке подключаешь готовые пакеты',
         [
             new ButtonModel(AnswerModel.answer('('), new PayloadModel(answer.NO, 'mobile')),
             new ButtonModel(AnswerModel.answer('Я Mobile developer!!!'), new PayloadModel(answer.YES, 'mobile')),
-        ]
+        ],
+        new CardModel(457239019)
     ),
     'backend': new QuestionModel(
         'Терминал или GUI?',
@@ -63,7 +67,8 @@ export const questions: { [key: string]: QuestionModel } = {
         [
             new ButtonModel(AnswerModel.answer('Это что?'), new PayloadModel(answer.NO, 'sp')),
             new ButtonModel(AnswerModel.answer('Го'), new PayloadModel(answer.YES, 'sp')),
-        ]
+        ],
+        new CardModel(457239018)
     )
 }
 

@@ -7,6 +7,8 @@ import {HelloCommand} from "../commands/HelloCommand";
 import {BadRequestCommand} from "../commands/BadRequestCommand";
 import {QuizCommand} from "../commands/QuizCommand";
 import {QuestionCommand} from "../commands/QuestionCommand";
+import {TaskCommand} from "../commands/TaskCommand";
+import {RecommendCommand} from "../commands/RecommendCommand";
 
 @JsonController()
 export class EntrypointController {
@@ -14,7 +16,9 @@ export class EntrypointController {
     private commands: AbstractCommand[] = [
         new HelloCommand(),
         new QuizCommand(),
-        new QuestionCommand()
+        new QuestionCommand(),
+        new TaskCommand(),
+        new RecommendCommand()
     ]
 
     @Get()

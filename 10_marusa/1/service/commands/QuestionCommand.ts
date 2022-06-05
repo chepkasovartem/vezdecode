@@ -7,6 +7,9 @@ import {answer, questions} from "../questions/questions";
 import {QuestionModel} from "../models/QuestionModel";
 import {DBService} from "../services/DBService";
 import path from "path";
+import {CardModel} from "../models/CardModel";
+import {AnyT, jsonMember} from "typedjson";
+import {CommandModel} from "../models/CommandModel";
 
 export class QuestionCommand extends AbstractCommand {
 
@@ -33,8 +36,13 @@ export class QuestionCommand extends AbstractCommand {
         let question: QuestionModel = questions[question_name]
 
         response.text = question.title
+        response.tts = response.text
         response.buttons = question.buttons
         response.end_session = false
+
+        if (question.card) {
+            response.commands = [question.card]
+        }
 
         return response
     }
@@ -60,6 +68,7 @@ export class QuestionCommand extends AbstractCommand {
             'До новых встреч'
         ]
 
+        response.tts = response.text.join(' ')
         response.end_session = true
 
         return response;

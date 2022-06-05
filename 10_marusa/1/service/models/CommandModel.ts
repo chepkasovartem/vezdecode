@@ -3,10 +3,16 @@ import {jsonMember, jsonObject} from "typedjson";
 @jsonObject
 export class CommandModel {
 
-    constructor(type: string, text: string) {
+    constructor(type: string, payload: any) {
         this.type = type;
-        this.text = text;
+        this.payload = payload
     }
+
+    @jsonMember(String)
+    public payload: any
+
+    @jsonMember(String)
+    public layout_name: string = "universal_placeholder"
 
     @jsonMember(String)
     public type: string
